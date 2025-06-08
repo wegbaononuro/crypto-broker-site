@@ -56,24 +56,33 @@ export default function App() {
       contact,
       timestamp: new Date().toISOString()
     }
-
+  
     try {
-      await fetch("https://script.google.com/macros/s/AKfycbxBd_VV5qyLh3iHEGDV8lV7p3u-ou1w6BPgRga-90ZLnpPlBvnFOMnxptiGyoiL_mpU/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxBd_VV5qyLh3iHEGDV8lV7p3u-ou1w6BPgRga-90ZLnpPlBvnFOMnxptiGyoiL_mpU/exec", {
         method: "POST",
-        body: JSON.stringify(formData),
         headers: {
           "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify(formData),
       })
-      alert("Order submitted successfully!")
-      setAmount("")
-      setWallet("")
-      setBank("")
-      setContact("")
+  
+      const result = await response.json()
+  
+      if (result.status === "success") {
+        alert("Order submitted successfully!")
+        setAmount("")
+        setWallet("")
+        setBank("")
+        setContact("")
+      } else {
+        console.error("Script error:", result)
+        alert("Error: Something went wrong. Please try again.")
+      }
     } catch (error) {
-      alert("Error submitting order")
+      console.error("Fetch error:", error)
+      alert("Error submitting order. Check your internet or try again later.")
     }
-  }
+  }  
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
