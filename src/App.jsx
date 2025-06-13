@@ -58,13 +58,13 @@ export default function App() {
     }
   
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzxamuV8_8wISgS8Z9pZs4eJAZtn4cdr1cbO9ieRA2N22LUzyQ3vEDzyyHjane0puR3/exec", {
+      const response = await fetch("hhttps://script.google.com/macros/s/AKfycbzxamuV8_8wISgS8Z9pZs4eJAZtn4cdr1cbO9ieRA2N22LUzyQ3vEDzyyHjane0puR3/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(formData),
-      })
+      });      
   
       const result = await response.json()
   
