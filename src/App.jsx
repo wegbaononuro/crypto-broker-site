@@ -58,7 +58,7 @@ export default function App() {
     }
   
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbydezZMnFjZrCEa0UH0GI_HsSo3Yc02hPaKsntk_MvLIPlsjmKQlQ6yx9lGf2VLIGrh/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbz3fyK6i_9wd4-JH2ZGlfDIkKZZfAO1sywACH4QaRyt_6m9ESJMmO3q8NI319WWOMR4/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
